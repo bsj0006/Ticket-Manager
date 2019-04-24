@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cheers Theater Ticket Kiosk</string>
+
+    <string name="CAMERA_RATIONALE">This app needs access to the camera to scan barcodes.</string>
+</resources>

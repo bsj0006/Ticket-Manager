@@ -415,18 +415,19 @@ module.exports.Database = function () {
      * @param paid
      * @param totalPrice
      */
-    this.add_ticket = function (showID, userID, paymentMethodID, reservedSeats, numberOfSeats, paid, totalPrice) {
+    this.add_ticket = function (callback, showID, userID, paymentMethodID, reservedSeats, numberOfSeats, paid, totalPrice) {
         let sql = `INSERT INTO Ticket(ShowID, UserID, PaymentMethodID, ReservedSeats, NumberOfSeats, Paid, TotalPrice) VALUES(?, ?, ?, ?, ?, ?, ?)`;
 
         let values = [showID, userID, paymentMethodID, reservedSeats, numberOfSeats, paid, totalPrice];
         db.run(sql, values, function (err) {
 
             if (err) {
-                console.log(values);
                 console.log(err.message);
+                callback(null);
             } else {
                 // get the last insert id
                 console.log(`A row has been inserted with rowid ${this.lastID}`);
+                callback(this.lastID);
             }
         });
     };

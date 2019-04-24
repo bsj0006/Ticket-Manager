@@ -48,8 +48,8 @@ module.exports.TicketManager = function (database) {
         db.set_ticket_paid(ticketID);
     };
 
-    this.add_ticket = function (showID, userID, paymentMethodID, reservedSeats, numberOfSeats, paid, totalPrice) {
-        db.add_ticket(showID, userID, paymentMethodID, reservedSeats, numberOfSeats, paid, totalPrice);
+    this.add_ticket = function (callback, showID, userID, paymentMethodID, reservedSeats, numberOfSeats, paid, totalPrice) {
+        db.add_ticket(callback, showID, userID, paymentMethodID, reservedSeats, numberOfSeats, paid, totalPrice);
     };
 
     this.update_ticket_seat = function (ticketID, showID, seats, numSeats) {

@@ -1,5 +1,6 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
+const email = require('../db/emailer');
 let showManager;
 let ticketManager;
 
@@ -57,8 +58,23 @@ router.post('/show_update', function (req, res) {
 //add a new ticket
 router.post('/add_ticket', function (req, res) {
     console.log(req.body);
-    ticketManager.add_ticket(req.body.showID, req.body.userID, req.body.paymentMethodID, req.body.reservedSeats, req.body.numberOfSeats, req.body.paid, req.body.totalPrice);
-    res.send({});
+    ticketManager.add_ticket(function (ticketID) {
+            if (ticketID !== null) {
+                let eaddress = req.body.email;
+                if (eaddress !== null && eaddress !== "") {
+                    email.notify_ticket(ticketID, req.body.showID, eaddress)
+                }
+                else
+                {
+                    console.log("Invalid email")
+                }
+            }
+            else
+            {
+                console.log("Email not sent. No ticket added.")            }
+            res.send({});
+        },
+        req.body.showID, req.body.userID, req.body.paymentMethodID, req.body.reservedSeats, req.body.numberOfSeats, req.body.paid, req.body.totalPrice);
 });
 
 module.exports = router;

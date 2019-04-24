@@ -1342,7 +1342,7 @@ function confirmBtn() {
         paidTicket = 1;
         paymentMethodIDval = 3;
     }
-    let ticketData = {showID: showTickets.showID, userID: 0, paymentMethodID: paymentMethodIDval, reservedSeats: stringClickedSeats, numberOfSeats: clickedSeats.length, paid: paidTicket, totalPrice: totalPrice};
+    let ticketData = {email: email, showID: showTickets.showID, userID: 0, paymentMethodID: paymentMethodIDval, reservedSeats: stringClickedSeats, numberOfSeats: clickedSeats.length, paid: paidTicket, totalPrice: totalPrice};
     $.post("/tickets/add_ticket", ticketData, function(result){
     });
 

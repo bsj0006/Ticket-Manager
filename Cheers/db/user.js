@@ -33,7 +33,6 @@ module.exports.UserManager = function (database) {
             if (!err) {
                 db.query_addresses(function (err, addressRows) {
                     let addressDictionary = {};
-                    console.log(addressRows);
                     for (let i = 0; i < addressRows.length; i++) {
                         let addressID = addressRows[i].addressID;
                         addressDictionary[addressID] = addressRows[i];
@@ -55,10 +54,8 @@ module.exports.UserManager = function (database) {
                                 userRow.phoneNumber, userRow.email, userRow.creditCardNumber,
                                 userRow.accountLoginID, userRow.seasonTicketSeat, userRow.sthProductionID);
                         }
-                        console.log(user);
                         userList.push(user);
                     }
-                    console.log(userList);
                     callback(userList);
                 });
             } else {
