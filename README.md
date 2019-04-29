@@ -1,4 +1,13 @@
-# Ticket-Manager
+# Ticket Kiosk
+Honors Project app that connects to the Cheers Ticket Manager and prints tickets for users. This app acts as a ticket pickup kiosk.
+
+External APIs
+  Mobile Vision: https://developers.google.com/vision/introduction
+  JSBarcode: https://www.npmjs.com/package/jsbarcode
+  Canvas: https://www.npmjs.com/package/canvas
+
+# This section of the ReadMe is from the Cheers project https://github.com/WCEarp/Ticket-Manager
+# Ticket Manager
 CS499 Group Project: Theater Ticket Manager
 
 Here is a short description of each file in this project
