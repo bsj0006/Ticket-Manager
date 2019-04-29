@@ -14,7 +14,7 @@ var transporter = nodemailer.createTransport({
 
 function notify(emails) {
     //console.log(emails);
-    var mailOptions = {
+    let mailOptions = {
         from: '"Cheers Squad" <cheers.tickets@gmail.com>', // sender address
         to: emails,
         subject: 'YOUR SEASON TICKET RENEWAL REMINDER',
@@ -32,19 +32,18 @@ function notify(emails) {
 }
 
 module.exports.notify_ticket = function (ticketID, show_id, email) {
-    var JsBarcode = require('jsbarcode');
     let ticketIDString = ticketID.toString();
     while(ticketIDString.length < 7)
     {
         ticketIDString = "0" + ticketIDString;
     }
-    var canvas = createCanvas(200, 150);
+    let canvas = createCanvas(200, 150);
     JsBarcode(canvas)
         .EAN8(ticketIDString, {fontSize: 18, textMargin: 0})
         .render();
     let imgBuffer = canvas.toBuffer();
 
-    var mailOptions = {
+    let mailOptions = {
         from: '"Cheers Squad" <cheers.tickets@gmail.com>', // sender address
         to: email,
         subject: 'Ticket Purchase Confirmation <ID: ' + ticketIDString + '>',

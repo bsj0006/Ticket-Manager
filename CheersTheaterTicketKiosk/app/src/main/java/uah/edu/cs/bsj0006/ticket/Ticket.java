@@ -1,4 +1,4 @@
-package uah.edu.cs.bsj0006;
+package uah.edu.cs.bsj0006.ticket;
 
 public class Ticket {
     private int ticketID;
@@ -9,8 +9,8 @@ public class Ticket {
     private boolean paid;
     private float price;
 
-    public Ticket(int ticketID, Show show, int userID, int paymentMethodID, String reservedSeat,
-                  boolean paid, float price) {
+    Ticket(int ticketID, Show show, int userID, int paymentMethodID, String reservedSeat,
+           boolean paid, float price) {
         this.ticketID = ticketID;
         this.show = show;
         this.userID = userID;
@@ -20,31 +20,31 @@ public class Ticket {
         this.price = price;
     }
 
-    public int getTicketID() {
+    int getTicketID() {
         return ticketID;
     }
 
-    public Show getShow() {
+    Show getShow() {
         return show;
     }
 
-    public int getUserID() {
+    int getUserID() {
         return userID;
     }
 
-    public int getPaymentMethodID() {
+    int getPaymentMethodID() {
         return paymentMethodID;
     }
 
-    public String getReservedSeat() {
+    String getReservedSeat() {
         return reservedSeat;
     }
 
-    public boolean isPaid() {
+    boolean isPaid() {
         return paid;
     }
 
-    public float getPrice() {
+    float getPrice() {
         return price;
     }
 }

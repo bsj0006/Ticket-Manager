@@ -1,4 +1,4 @@
-package uah.edu.cs.bsj0006;
+package uah.edu.cs.bsj0006.ticket;
 
 import org.json.JSONException;
 import org.json.JSONObject;
