@@ -139,7 +139,7 @@ public class FullscreenActivity extends AppCompatActivity  implements BarcodeGra
         // to other detection examples to enable the barcode detector to detect small barcodes
         // at long distances.
         com.google.android.gms.vision.CameraSource.Builder builder = new com.google.android.gms.vision.CameraSource.Builder(getApplicationContext(), barcodeDetector)
-                .setFacing(CameraSource.CAMERA_FACING_FRONT)
+                .setFacing(CameraSource.CAMERA_FACING_BACK)
                 .setRequestedPreviewSize(1600, 1024)
                 .setRequestedFps(15.0f);
 
